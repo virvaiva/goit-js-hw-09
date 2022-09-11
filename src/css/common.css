@@ -16,3 +16,36 @@ img {
   display: block;
   max-width: 100%;
 }
+#datetime-picker {
+  border-radius: 12px;
+  background: #000000;
+  color: #fafafa;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+}
+.timer {
+  display: flex;
+  gap: 20px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.value {
+  color: blue;
+  font-size: 40px;
+}
+
+.btn {
+  font-weight: 800;
+  font-size: 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+}
