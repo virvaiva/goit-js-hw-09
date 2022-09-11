@@ -8,6 +8,7 @@ import Notiflix from 'notiflix';
 refs = {
     startBtn: document.querySelector('[data-start]'),
     inputEl: document.querySelector('#datetime-picker'),
+
     intrfaceEl: {
         days: document.querySelector('[data-days]'),
         hours: document.querySelector('[data-hours]'),
@@ -15,6 +16,8 @@ refs = {
         seconds: document.querySelector('[data-seconds]'),
     }
 };
+
+let intervalId = null;
 
 refs.startBtn.disabled = true;
 refs.startBtn.addEventListener('click', startClickTime);
@@ -38,9 +41,13 @@ const options = {
 flatpickr('#datetime-picker', options);
 
 function startClickTime() {
-    setInterval(() => {
+    intervalId = setInterval(() => {
         const selectedTime = new Date(refs.inputEl.value)
         const deltaTime = selectedTime - Date.now();
+
+        if (deltaTime <= 1000) {
+            clearInterval(intervalId)
+        }
         changeInterface(deltaTime);
     }, 1000)
     
