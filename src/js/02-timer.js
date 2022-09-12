@@ -5,7 +5,7 @@ import "flatpickr/dist/flatpickr.min.css";
 // all modules
 import Notiflix from 'notiflix';
 
-refs = {
+const refs = {
     startBtn: document.querySelector('[data-start]'),
     inputEl: document.querySelector('#datetime-picker'),
 
@@ -41,6 +41,8 @@ const options = {
 flatpickr('#datetime-picker', options);
 
 function startClickTime() {
+    refs.startBtn.disabled = true;
+    refs.inputEl.disabled = true;
     intervalId = setInterval(() => {
         const selectedTime = new Date(refs.inputEl.value)
         const deltaTime = selectedTime - Date.now();
